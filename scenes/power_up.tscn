@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bli80042ya77m"]
+
+[ext_resource type="Script" uid="uid://dim0e104dm2c5" path="res://scripts/power_up.gd" id="1_mkoic"]
+[ext_resource type="Texture2D" uid="uid://802rnxk2yttx" path="res://assets/Power up/Rayo1.png" id="2_h1prs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7xf0t"]
+radius = 14.0
+height = 52.0
+
+[node name="PowerUp" type="Area2D" unique_id=712939854]
+script = ExtResource("1_mkoic")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=26006714]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_h1prs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1034518935]
+shape = SubResource("CapsuleShape2D_7xf0t")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

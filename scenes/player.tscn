@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://ddq0361btfuu0"]
+
+[ext_resource type="Script" uid="uid://cr3mx0pewvep6" path="res://scripts/player.gd" id="1_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://m6sd2fa8i8ye" path="res://assets/prota/arriba1.png" id="1_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://ds5muyds3lcxr" path="res://assets/prota/caminar2.png" id="2_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://betybecc3nh0a" path="res://assets/prota/abajo.png" id="2_dw050"]
+[ext_resource type="Texture2D" uid="uid://byw4ulc22qkxm" path="res://assets/prota/caminar3.png" id="3_dw050"]
+[ext_resource type="Texture2D" uid="uid://go75iwlwokmd" path="res://assets/prota/caminar4.png" id="4_b26j0"]
+[ext_resource type="Texture2D" uid="uid://bvow247x6absr" path="res://assets/prota/caminar5.png" id="5_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://bclmq07gc007c" path="res://assets/prota/caminar1.png" id="6_nvl01"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xf0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dw050")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2hs0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n7ghd")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n7ghd")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7xf0t"]
+radius = 33.0
+height = 78.0
+
+[node name="Player" type="Area2D" unique_id=1319133351]
+position = Vector2(0, -8)
+collision_mask = 2
+script = ExtResource("1_1jxqw")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1429496316]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7xf0t")
+animation = &"down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=744513679]
+shape = SubResource("CapsuleShape2D_7xf0t")
+
+[node name="StarTimer" type="Timer" parent="." unique_id=1817758049]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="StarTimer" to="." method="_on_star_timer_timeout"]
