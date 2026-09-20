@@ -1,0 +1,4 @@
+Debido a los límites de tamaño de 25 MB de GitHub, el archivo ejecutable del juego se encuentra alojado de forma segura en Google Drive.
+
+Por favor, descárgalo desde el siguiente enlace:
+https://drive.google.com/drive/folders/1wNM8PSn9N8cPhXf8cEs3dVNfaCLV29h4?usp=sharing
